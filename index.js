@@ -7,13 +7,13 @@ const { userInfoFetcher, totalCommitsFetcher } = require('./fetch');
 const numeral = require('numeral');
 
 const gistId = process.env.GIST_ID;
-const githubToken = process.env.ST_TOKEN;
+const githubToken = process.env.GH_TOKEN;
 const countAllCommits = process.env.ALL_COMMITS.toString() === 'true';
 const kFormat = process.env.K_FORMAT.toString() === 'true';
 
 async function main() {
     if (!githubToken) {
-        throw new Error('ST_TOKEN is not defined');
+        throw new Error('GH_TOKEN is not defined');
     }
     let stats;
     try {
